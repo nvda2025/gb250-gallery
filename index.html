@@ -61,29 +61,30 @@
         </div>
     </section>
 
-<!-- Video Section -->
+<!-- Video Section 1 (VHS Effect) -->
 <section id="video" class="video-section">
     <div class="section-title reveal">
         <h2>The Sound of Single</h2>
     </div>
     
     <div class="video-container reveal">
-        <!-- エフェクトレイヤー -->
-        <div class="vhs-overlay">
+        <!-- エフェクトレイヤー (最前面でノイズを出す) -->
+        <div class="vhs-overlay" style="pointer-events: none;"> <!-- pointer-eventsを追加 -->
             <div class="vhs-scanlines"></div>
             <div class="vhs-noise"></div>
-            <div class="film-scratches"></div> <!-- 縦の傷を追加 -->
+            <div class="film-scratches"></div>
         </div>
        
         <div class="video-wrapper">
-            <video controls poster="images/IMG_3026.webp">
-                <source src=" https://drive.google.com/file/d/1r5BDHM0Ia0o3YwmFOg_8lzyETyqGt3hn/view?usp=drive_link">
-                Your browser does not support the video tag.
-            </video>
+            <!-- Google Driveの動画を埋め込み形式に変更 -->
+            <iframe 
+                src="https://drive.google.com/file/d/1r5BDHM0Ia0o3YwmFOg_8lzyETyqGt3hn/preview" 
+                width="100%" height="450" frameborder="0" allow="autoplay">
+            </iframe>
         </div>
     </div>
 
-    <!-- 重要：このSVGフィルタがないとノイズが出ません -->
+    <!-- SVGフィルタ（IDの重複を避けるため1つに集約を推奨） -->
     <svg style="display: none;">
         <filter id="vhs-distort">
             <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="0">
@@ -97,33 +98,22 @@
     </svg>
 </section>
 
-    <!-- フィルムダメージ・ノイズ生成用SVG（表示はされません） -->
-    <svg style="display: none;">
-        <filter id="vhs-distort">
-            <!-- 粒子の細かいノイズを生成 -->
-            <feTurbulence type="fractalNoise" baseFrequency="0.80" numOctaves="4" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-            <feComponentTransfer>
-                <feFuncA type="linear" slope="0.15" /> 
-            </feComponentTransfer>
-            <feBlend in="SourceGraphic" operator="over" />
-        </filter>
-    </svg>
-</section>
-
 <!-- Video Section 2 (Effect Clean) -->
 <section id="video2" class="video-section clean-style">
     <div class="section-title reveal">
         <h2>Touring Fun</h2>
     </div>
     
-    <!-- 効果用のオーバーレイを入れず、シンプルなコンテナにする https://youtu.be/rbdhKblN9Kc ../../2025/2025-08-02_深城ダム/道志・深城ダム.mp4-->
     <div class="video-container reveal">
         <div class="video-wrapper">
-            <video controls poster="images/IMG_3022.webp">
-                <source src="https://youtu.be/rbdhKblN9Kc">
-                Your browser does not support the video tag.
-            </video>
+            <!-- YouTubeの動画を埋め込み形式(embed)に変更 -->
+            <iframe 
+                width="100%" height="450" 
+                src="https://www.youtube.com/embed/rbdhKblN9Kc" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
 </section>
