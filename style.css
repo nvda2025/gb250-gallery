@@ -450,3 +450,19 @@ footer {
     background: transparent;
     box-shadow: none;
 }
+
+/* スマートフォン（画面幅768px以下）の場合の特別設定 */
+@media (max-width: 768px) {
+    .gallery-overlay {
+        opacity: 1 !important;      /* 常に表示させる */
+        visibility: visible !important;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7)); /* 文字を見やすくするため背景を少し暗く */
+        height: 40%;               /* 下の方だけに表示させる（画像全体を隠さない） */
+        top: auto;
+        bottom: 0;
+    }
+    
+    .photo-label {
+        font-size: 0.9rem;         /* スマホ用に文字サイズを微調整 */
+    }
+}
